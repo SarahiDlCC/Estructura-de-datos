@@ -12,6 +12,5 @@ int main() {
         cout << "Size: " << v.size() /*Cantidad real de elementos guardados*/<< endl;
         cout << "Capacity: " << v.capacity() /*Espacio reservado en memoria*/<< endl;
         cout << "--------------------" << endl;
-    }
-    return 0;
+    } return 0;
 }
