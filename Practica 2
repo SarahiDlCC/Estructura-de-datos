@@ -1,0 +1,135 @@
+#include <algorithm> //Contiene algoritmos como sort, msx_element, reverse
+#include <iostream>
+#include <vector> //define la clase vector de la STL
+using namespace std;
+
+int main() {
+    cout << "---Creación de vectores---" << endl;
+    
+    vector<int> v1; //Vector vacío de vectores
+    /*Tamaño = 0
+      Capacidad = 0  */
+       
+    //Vector con tamaño definido
+    vector<int> v2[5]; //Son 5 vectores distintos
+    
+    //Vector con tamaño y valor inicial
+    vector<int> v3(5, 10);
+    /* Tamaño = 5
+			 Cada elemento inicializa en 10    */
+    
+    //Vector con valores iniciales
+    vector<int> v4 = {1, 2, 3, 4, 5}; //Inicialización con lista
+    
+    //Copia a un vector
+    vector<int> copia = v4;
+    
+    //Imprimir un vector
+    cout << "Vector v4:";
+    for (int x : v4) cout << x << " "; //x toma cada valor del vector
+    //Se imprime separado por espacio
+    
+    /*
+    //Imprimir un vector
+    cout << "Vector v3:";
+    for (int x : v3) cout << x << " ";
+    */
+    
+    cout << endl << "=== Acceder a elementos de un vector ===" << endl;
+    
+    cout << "Acceder a la posición 2 del vector v4: " << v4[2] /*Accede por índice (empieza en 0)*/<< endl;
+    cout << "Primer elemento del vector v4: " << v4.front() /*I]mprime el primer elemento*/<< endl;
+    cout << "Último elemento del vector v4: " << v4.back() /*imprime el ultimo elemento*/<< endl;
+    
+    cout << "=== Modificar elementos de un vector ===" << endl;
+    
+    v4[0] = 100; //Reemplaza el primer valor
+    
+    //Agregar un valor al final
+    v4.push_back(50);
+    
+    //Imprimir un vector
+    cout << "Vector v4:";
+    for (int x : v4) cout << x << " ";
+    cout << endl;
+    
+    //Insertar un valor en una posición en específico
+    v4.insert(v4.begin() /*devuelve iterador al inicio*/ + 2, /*avanza 2 posiciones*/ 99 /*Inserta 99 en esa posición*/);
+    
+    //Imprimir un vector
+    cout << "Vector v4:";
+    for (int x : v4) cout << x << " ";
+    cout << endl;
+    
+    //Insertar varios valores
+    v4.insert(v4.begin() + 1/*posición*/, 3/*elementos*/, 10/*valor*/);
+    // Inserta 3 elementos con valor 10 desde posición 1
+    
+    //Imprimir un vector
+    cout << "Vector v4:";
+    for (int x : v4) cout << x << " ";
+    cout << endl;
+    
+    //Eliminar valores por posición
+    v4.erase(v4.begin() + 1); //Elimina un solo elemento
+    
+    //Imprimir un vector
+    cout << "Vector v4:";
+    for (int x : v4) cout << x << " ";
+    cout << endl;
+    
+    //Eliminar por rango
+    v4.erase(v4.begin() + 1, v4.begin() + 3);
+    //Elimina desde posición 1 hasta antes de posición 3
+        
+    //    v4.erase(v4.begin(), v4.begin() + 2);
+
+    //Imprimir un vector
+    cout << "Vector v4:";
+    for (int x : v4) cout << x << " ";
+    cout << endl;
+    
+    cout << "=== Obtener información del vector ===" << endl;
+    cout << "Tamaño v4: " << v4.size() /*cantidad real de elementos*/<< endl;
+    cout << "Capacidad v4: " << v4.capacity() /*Capacidad reservado en memoria*/<< endl;
+    cout << "¿El vector v4 esta vacío? " << (v4.empty()? "Si" : "No") /*Devulve true si size == 0*/<< endl;
+    
+    cout << "=== Control de memoria ===" << endl;
+    v4.reserve(100); //Reserva espacio para 100 elementos y no cambia el tamaño
+    
+    cout << "Capacidad v4: " << v4.capacity() << endl;
+    v4.resize(15, 5); //Cambia el tamaño a 15
+    //Si el tamaño aumenta, los nuevos elelementos valen 5
+    
+    cout << "Capacidad v4: " << v4.capacity() << endl;
+
+    //Imprimir un vector
+    cout << "Vector v4:";
+    for (int x : v4) cout << x << " ";
+    cout << endl;
+    
+    v4.reserve(v4.capacity());
+    
+    //Recorrer el vector
+    for (int i = 0; i < v4.size() ; i++) {
+        cout << v4[i] << " ";
+    }
+    
+    cout << endl << "=== Algoritmos ===" << endl;
+    vector<int> datos = {9, 3, 5, 10, 8, 4};
+    
+    //Ordenar ascedente
+    sort(datos.begin(), datos.end());
+    
+    cout << "Vector ordenado: " << endl;
+    for (int x : datos) cout << x << " ";
+    cout << endl;
+    
+    cout << "Valor Máximo: " << *max_element(datos.begin(), datos.end()) << endl;
+    cout << "Valor Mínimo: " << *min_element(datos.begin(), datos.end()) << endl;
+
+    //Invertir un Vector
+    reverse(datos.begin(), datos.end());
+    
+    return 0;
+}
