@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector> //Permite usar la estructura dinamica "vector"
+using namespace std;
+
+int main() {
+    vector<int> v; //El vector administrará el heap automáticamente
+
+    for (int i = 1; i <= 5 /*el cicli se ejecutara 5 veces*/; i++) {
+        v.push_back(i * 10); //el vector crece dinámicamente 
+
+        cout << "Valor agregado: " << i * 10 << endl;
+        cout << "Size: " << v.size() /*Cantidad real de elementos guardados*/<< endl;
+        cout << "Capacity: " << v.capacity() /*Espacio reservado en memoria*/<< endl;
+        cout << "--------------------" << endl;
+    }
+    return 0;
+}
